@@ -16,7 +16,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class StockController {
 	
-	@RequestMapping("/")
+	@RequestMapping("/Scrape")
 	public static ArrayList<String> main(String[] args) {
 
         System.setProperty("webdriver.chrome.driver", "C:\\chromedriver_win32\\chromedriver.exe");
