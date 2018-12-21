@@ -46,9 +46,25 @@ public class StockController {
         WebElement table = driver.findElement(By.tagName("tbody"));
         
         ArrayList<String> stocks = new ArrayList<String>();
+        int i = 1;
         
         for(WebElement row: table.findElements(By.tagName("tr"))) {
-        	stocks.add(row.getText());
+        	
+			String tempStock = ""; 
+				
+		    tempStock += (driver.findElement(By.xpath("//*[@id=\"main\"]/section/section[2]/div[2]/table/tbody/tr[" + i  + "]/td[1]/span/a")).getAttribute("innerText")) + " ";
+			tempStock += (driver.findElement(By.xpath("//*[@id=\"main\"]/section/section[2]/div[2]/table/tbody/tr[" + i  + "]/td[2]/span")).getAttribute("innerText")) + " ";
+			tempStock += (driver.findElement(By.xpath("//*[@id=\"main\"]/section/section[2]/div[2]/table/tbody/tr[" + i  + "]/td[3]/span")).getAttribute("textContent")) + " ";
+			tempStock += (driver.findElement(By.xpath("//*[@id=\"main\"]/section/section[2]/div[2]/table/tbody/tr[" + i  + "]/td[4]/span")).getAttribute("innerText")) + " ";
+			tempStock += (driver.findElement(By.xpath("//*[@id=\"main\"]/section/section[2]/div[2]/table/tbody/tr[" + i  + "]/td[5]")).getAttribute("innerText")) + " ";
+			tempStock += (driver.findElement(By.xpath("//*[@id=\"main\"]/section/section[2]/div[2]/table/tbody/tr[" + i  + "]/td[6]/span")).getAttribute("innerText")) + " ";
+			tempStock += (driver.findElement(By.xpath("//*[@id=\"main\"]/section/section[2]/div[2]/table/tbody/tr[" + i  + "]/td[7]/span")).getAttribute("innerText")) + " ";
+			tempStock += (driver.findElement(By.xpath("//*[@id=\"main\"]/section/section[2]/div[2]/table/tbody/tr[" + i  + "]/td[9]")).getAttribute("innerText")) + " ";
+			tempStock += (driver.findElement(By.xpath("//*[@id=\"main\"]/section/section[2]/div[2]/table/tbody/tr[" + i  + "]/td[13]/span")).getAttribute("innerText"));
+
+			stocks.add(tempStock);
+			i++;
+           
         }
         
         driver.quit();
